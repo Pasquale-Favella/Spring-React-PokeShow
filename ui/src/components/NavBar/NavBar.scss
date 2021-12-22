@@ -1,0 +1,20 @@
+.nav{
+    width: 100%;
+    background-color: rgb(98, 98, 248);
+    color: white;
+    height: 50px;
+    display: flex;
+    .nav-logo{
+        margin: auto 0;
+
+        svg{
+            transform: scale(1.7);
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .app-name{
+            font-size: 20px;
+        }
+    }
+}
