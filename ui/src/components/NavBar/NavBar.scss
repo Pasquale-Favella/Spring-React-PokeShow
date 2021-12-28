@@ -4,9 +4,10 @@
     color: white;
     height: 50px;
     display: flex;
+    justify-content: space-between;
     .nav-logo{
         margin: auto 0;
-
+        cursor: pointer;
         svg{
             transform: scale(1.7);
             margin-left: 10px;

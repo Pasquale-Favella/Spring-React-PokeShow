@@ -6,6 +6,7 @@ import { GiPokecog } from 'react-icons/gi';
 import { usePokemonSuggest } from '../../hooks/use-pokemon-suggest';
 import { Suggestion } from './Suggestions';
 import { useClickOutside } from '../../hooks/use-click-outside';
+import { useHistory } from 'react-router-dom';
 
 
 export const SearchBar = ()=>{
@@ -17,8 +18,16 @@ export const SearchBar = ()=>{
 
     const { isLoading, suggestions } = usePokemonSuggest(term);
 
+    let history = useHistory();
+
     const handleChange = ({target : {value}})=>{
-        setTerm(value)
+        setTerm(value);
+    }
+
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log('term submitted',term);
+        history.push(`/pokemon/${encodeURIComponent(term)}`);
     }
 
    
@@ -28,6 +37,7 @@ export const SearchBar = ()=>{
                 <span className="icon" style={isLoading ? { animation :`imgLoading 1s ease-in-out infinite`  } : {}}>
                     {isLoading ? <GiPokecog/> : <FiSearch/>}
                 </span>
+                <form onSubmit={handleSubmit}>
                 <input 
                     type="text" 
                     placeholder="Search Pokemon"
@@ -37,6 +47,8 @@ export const SearchBar = ()=>{
                     onClick={()=>setShowSuggestions(true)}
                     style={suggestions && showSuggestions ? { borderRadius :`5px 5px 0 0`  } : {}}
                 />
+                <button hidden type='submit'></button>
+                </form>
             </div>
             {
                 showSuggestions 
@@ -46,7 +58,9 @@ export const SearchBar = ()=>{
                         {suggestions.map(pokemon => 
                                             <Suggestion
                                              key={pokemon.pokedexNumber}
-                                             pokemon={pokemon}/>
+                                             pokemon={pokemon}
+                                             onSuggestClick={()=>setShowSuggestions(false)}
+                                             />
                                         )
                         }
                     </ul>

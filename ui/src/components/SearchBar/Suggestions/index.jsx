@@ -5,7 +5,7 @@ import { GiPokecog } from 'react-icons/gi';
 
 import { useHistory } from 'react-router-dom';
 
-export const Suggestion =({pokemon})=>{
+export const Suggestion =({pokemon , onSuggestClick})=>{
 
     const [imgLoaded , setImgLoaded] = useState(false);
 
@@ -13,7 +13,8 @@ export const Suggestion =({pokemon})=>{
     let history = useHistory();
 
     const viewPokemonDetails = ()=>{
-        history.push(`/pokemon/${encodeURIComponent(pokemon.pokedexNumber)}`);
+        history.push(`/pokemon/${pokemon.pokedexNumber}`);
+        onSuggestClick();
     }
 
     return(
