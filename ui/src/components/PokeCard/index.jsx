@@ -2,13 +2,18 @@ import {useState} from 'react';
 import './Pokecard.scss';
 import { GiPokecog } from 'react-icons/gi';
 import {PokeTypesColorMatch} from '../../utils';
+import { useHistory } from 'react-router-dom';
 
 const PokeCard = ({pokemon , scale = 1})=>{
 
     const [imgLoaded , setImgLoaded] = useState(false);
 
+    let history = useHistory();
+
     return (
-        <div className='pokemon' style={{ transform: `scale(${scale})` ,margin : `${scale*10}px` , backgroundColor :`${PokeTypesColorMatch[pokemon.type]}` }}>
+        <div className='pokemon' style={{ transform: `scale(${scale})` ,margin : `${scale*10}px` , backgroundColor :`${PokeTypesColorMatch[pokemon.type]}` }}
+            onClick={()=>history.push(`/pokemon/${pokemon.name}`)}
+        >
              <div className="img-container">
                 <img 
                     style={imgLoaded ? {} : { display: 'none' }}

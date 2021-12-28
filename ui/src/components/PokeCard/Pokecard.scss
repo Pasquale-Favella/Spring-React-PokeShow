@@ -3,6 +3,7 @@
 	box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
 	padding: 20px;
 	text-align: center;
+    cursor: pointer;
 
     .info {
         margin-top: 20px;
@@ -29,10 +30,11 @@
         width: 120px;
         height: 120px;
         text-align: center;
-
+       
         img {
             margin-top: 20px;
             max-width: 90%;
+            transition: all .3s ease;
         }
 
         svg{
@@ -42,6 +44,14 @@
             animation-iteration-count: infinite;
             animation-name: imgLoading;
             animation-timing-function: ease-in-out;
+        }
+    }
+
+    &:hover{
+        .img-container{
+            img {
+                transform: scale(1.5);
+            }
         }
     }
 }
