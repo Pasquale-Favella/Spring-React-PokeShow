@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { GiPokecog } from 'react-icons/gi';
+import { useHistory } from 'react-router-dom';
 import {PokeTypesColorMatch} from '../../../utils';
 
 const TableRow = ({pokemon})=>{
     
     const [imgLoaded , setImgLoaded] = useState(false);
 
+    let history = useHistory();
+
     return (
-        <tr>
+        <tr onClick={()=>history.push(`/pokemon/${pokemon.name}`)}>
             <td>
                 <div className='sprite-wrapper' style={{ backgroundColor :`${PokeTypesColorMatch[pokemon.type]}`  }}>
                     <img 
