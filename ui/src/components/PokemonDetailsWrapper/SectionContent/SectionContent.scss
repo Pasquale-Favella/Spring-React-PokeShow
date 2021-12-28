@@ -1,0 +1,17 @@
+.section-content{
+
+    .section-title{
+        display: flex;
+        align-items: baseline;
+
+        small{
+            font-weight: bold;
+            font-size: larger;
+            margin-left: 10px;
+
+            svg{
+                fill: rgb(227, 243, 81);
+            }
+        }
+    }
+}
