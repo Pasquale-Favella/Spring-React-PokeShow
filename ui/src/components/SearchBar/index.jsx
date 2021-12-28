@@ -27,6 +27,7 @@ export const SearchBar = ()=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         console.log('term submitted',term);
+        setShowSuggestions(false);
         history.push(`/pokemon/${encodeURIComponent(term)}`);
     }
 
