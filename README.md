@@ -1,5 +1,5 @@
 # React and Spring Boot PokeShow
 
-![alt text](https://user-images.githubusercontent.com/62385965/147589615-12771280-d0cc-4b22-b961-5a3780115cf1.PNG)
+![alt text](https://user-images.githubusercontent.com/62385965/147589944-efd063fa-ba05-4d61-9da3-69eb62437035.PNG)
 
 ## [Watch it live](https://spring-poke-show.herokuapp.com/#/)
