@@ -36,10 +36,10 @@ public class PokemonController {
     }
 
 
-    @GetMapping("/pokemon/{id}")
-    ResponseEntity<PokemonSingleResponse> findById(@PathVariable Integer id){
+    @GetMapping("/pokemon/{pokemonName}")
+    ResponseEntity<PokemonSingleResponse> findByName(@PathVariable String pokemonName){
 
-        return pokemonService.findById(id)
+        return pokemonService.findByPokemonName(pokemonName)
                 .map((pokemon)-> new ResponseEntity<>(
                     new PokemonSingleResponse(HttpStatus.OK.value(), pokemon), 
                     HttpStatus.OK

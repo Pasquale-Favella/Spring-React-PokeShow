@@ -36,6 +36,17 @@ public class PokemonService {
                 });
     }
 
+    public Optional<Pokemon> findByPokemonName(String pokemonName){
+
+        return pokemonRepository.findByName(pokemonName).
+            map((pokemon)-> {
+                pokemon.setAbility(
+                    pokemonAbilityRepo.findByPokedexNum(pokemon.getPokedexNumber())
+                );
+                return pokemon;
+            });
+    }
+
     public List<PokemonBaseInfo> findBest(){
         return pokemonRepository.findBestPokemonByGeneration();
     }

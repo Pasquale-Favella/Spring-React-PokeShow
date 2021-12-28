@@ -13,7 +13,7 @@ export const Suggestion =({pokemon , onSuggestClick})=>{
     let history = useHistory();
 
     const viewPokemonDetails = ()=>{
-        history.push(`/pokemon/${pokemon.pokedexNumber}`);
+        history.push(`/pokemon/${pokemon.name}`);
         onSuggestClick();
     }
 

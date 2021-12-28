@@ -1,6 +1,7 @@
 package com.pokedex.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import com.pokedex.dto.PokemonBaseInfo;
 import com.pokedex.models.Pokemon;
@@ -50,5 +51,14 @@ public interface PokemonRepository extends JpaRepository<Pokemon,Integer> {
         +"limit 5 "
     )
     List<PokemonBaseInfo> findAllBySuggest(@Param("term") String term);
+
+    @Query(
+        nativeQuery = true,
+        value=
+        "select p.* "
+        +"from pokemon as p "
+        +"where LOWER(p.name) = :name "
+    )
+    Optional<Pokemon> findByName(@Param("name") String name);
     
 }
