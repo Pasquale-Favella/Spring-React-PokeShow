@@ -1,4 +1,5 @@
 import { useHistory } from 'react-router-dom';
+import { formatPokedexNumber } from '../../../utils';
 import { PokemonImage } from '../../PokemonImage';
 
 const TableRow = ({pokemon})=>{
@@ -12,7 +13,7 @@ const TableRow = ({pokemon})=>{
             </td>
             <td>{pokemon.name}</td>
             <td>{pokemon.generation}</td>
-            <td>{pokemon.pokedexNumber}</td>
+            <td>{formatPokedexNumber( pokemon.pokedexNumber )}</td>
             <td>{pokemon.baseTotal}</td>
         </tr>
     )

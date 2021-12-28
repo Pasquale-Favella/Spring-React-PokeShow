@@ -1,6 +1,6 @@
 import './Pokecard.scss';
 
-import {PokeTypesColorMatch} from '../../utils';
+import {formatPokedexNumber, PokeTypesColorMatch} from '../../utils';
 import { useHistory } from 'react-router-dom';
 import { PokemonImage } from '../PokemonImage';
 
@@ -15,7 +15,7 @@ const PokeCard = ({pokemon , scale = 1})=>{
              
              <PokemonImage pokemon={pokemon} injectClass="img-container"/>
              <div className="info">
-                 <span className="number">#{pokemon.pokedexNumber}</span>
+                 <span className="number">{formatPokedexNumber( pokemon.pokedexNumber)}</span>
                  <h3 className="name">{pokemon.name}</h3>
                  <small >Generation : <span>{pokemon.generation}</span></small>
                  <small >Base stats : <span>{pokemon.baseTotal}</span></small>

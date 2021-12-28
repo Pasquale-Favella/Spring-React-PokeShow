@@ -112,3 +112,5 @@ export const PokeTypesColorMatch = {
     water : 'rgb(102, 87, 241)'
     
 }
+
+export const formatPokedexNumber = pokedexNumber =>'#'+('000' + pokedexNumber).substr(-3)
