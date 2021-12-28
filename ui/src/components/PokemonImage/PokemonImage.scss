@@ -1,0 +1,28 @@
+.pokeimage-wrapper{
+    background-color: rgba(211, 203, 203, 0.6);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    margin: auto 10px;
+
+    img{
+        max-width: 40px;
+        object-fit: cover;
+        transition: all .3s ease ;
+
+        &:hover{
+            transform: scale(1.5);
+        }
+    }
+
+    svg{
+        margin-top: 10px;
+        font-size: 20px;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-name: imgLoading;
+        animation-timing-function: ease-in-out;
+    }
+}
