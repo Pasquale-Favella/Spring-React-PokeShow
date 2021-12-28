@@ -1,5 +1,11 @@
+import './PokemonDetail.scss'
+
 import { useParams } from "react-router-dom";
 import { usePokemon } from "../../hooks/use-pokemon";
+
+import PageLoader from "../../components/PageLoader";
+import { PokemonDetailsWrapper } from "../../components/PokemonDetailsWrapper";
+import PokemonDetailsContext from '../../context/PokemonDetailContext';
 
 const PokemonDetail = ()=>{
 
@@ -7,12 +13,14 @@ const PokemonDetail = ()=>{
 
     const { isLoading , pokemonDetails } = usePokemon(pokemon);
 
+
     return (
-        <>
-            Detail works : {pokemon}
-            <br/>
-            {pokemonDetails && JSON.stringify(pokemonDetails,null,2)}
-        </>
+        <PokemonDetailsContext.Provider value={{ pokemonDetails }}>
+            <main className="details-page">
+                {isLoading && <PageLoader/>}
+                {pokemonDetails &&  <PokemonDetailsWrapper />}
+            </main>
+        </PokemonDetailsContext.Provider>
     )
 }
 
