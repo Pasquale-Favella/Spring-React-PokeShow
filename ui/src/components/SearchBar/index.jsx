@@ -49,25 +49,24 @@ export const SearchBar = ()=>{
                     style={suggestions && showSuggestions ? { borderRadius :`5px 5px 0 0`  } : {}}
                 />
                 <button hidden type='submit'></button>
+                {
+                    showSuggestions 
+                    && suggestions 
+                    && (
+                        <ul className="search-suggestions">
+                            {suggestions.map(pokemon => 
+                                                <Suggestion
+                                                key={pokemon.pokedexNumber}
+                                                pokemon={pokemon}
+                                                onSuggestClick={()=>setShowSuggestions(false)}
+                                                />
+                                            )
+                            }
+                        </ul>
+                    )
+                }
                 </form>
             </div>
-            {
-                showSuggestions 
-                && suggestions 
-                && (
-                    <ul className="search-suggestions">
-                        {suggestions.map(pokemon => 
-                                            <Suggestion
-                                             key={pokemon.pokedexNumber}
-                                             pokemon={pokemon}
-                                             onSuggestClick={()=>setShowSuggestions(false)}
-                                             />
-                                        )
-                        }
-                    </ul>
-                )
-            }
-            
         </div>
     )
 }
