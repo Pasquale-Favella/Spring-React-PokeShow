@@ -11,7 +11,7 @@ const PokemonDetail = ()=>{
 
     let { pokemon } = useParams();
 
-    const { isLoading , pokemonDetails } = usePokemon(pokemon);
+    const { isLoading , pokemonDetails , error } = usePokemon(pokemon);
 
 
     return (
@@ -19,6 +19,7 @@ const PokemonDetail = ()=>{
             <main className="details-page">
                 {isLoading && <PageLoader/>}
                 {pokemonDetails &&  <PokemonDetailsWrapper />}
+                {error && <h1 className="details-error">Pokemon {pokemon} not found</h1>}
             </main>
         </PokemonDetailsContext.Provider>
     )

@@ -4,17 +4,24 @@
     border-radius: 5px;
     margin-top: 10px;
     min-height: calc(100vh - 50px - 20px);
+
     .info-card{
         width: 200px;
         height: 200px;
-        border-radius: 5px;
-        margin-top: 10px;
+        border-radius: 5px 5px 0 0;
+        margin: 0 auto;
 
         img{
             object-fit: contain;
             max-width: 200px;
             height: 100%;
 
+        }
+
+        @media only screen and (max-width: 767px) {
+            border-radius: 5px;
+            margin: 10px auto 0;
+            
         }
     }
 
@@ -33,12 +40,17 @@
             padding: 10px 0 10px 0;
             li{
                 cursor: pointer;
-                transition: all .3s ease;
+                transition: all .1s ease;
                 &:hover{
-                    transform: scale(1.5);
                     font-weight: bold;
                 }
             }
+        }
+
+        @media only screen and (max-width: 767px) {
+           
+            margin: auto;
+            max-width: 200px;
         }
     }
 }
