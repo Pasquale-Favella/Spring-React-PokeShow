@@ -2,11 +2,9 @@
 
     background-color: rgb(241, 240, 240);
     border-radius: 5px;
-    margin-top: 10px;
-    min-height: calc(100vh - 50px - 20px);
 
     .info-card{
-        width: 200px;
+        width: 100%;
         height: 200px;
         border-radius: 5px 5px 0 0;
         margin: 0 auto;
@@ -21,6 +19,7 @@
         @media only screen and (max-width: 767px) {
             border-radius: 5px;
             margin: 10px auto 0;
+            width: 200px;
             
         }
     }
@@ -47,6 +46,42 @@
             }
         }
 
+        @media only screen and (max-width: 767px) {
+           
+            margin: auto;
+            max-width: 200px;
+        }
+    }
+
+    .type-section{
+        text-align: center;
+        padding: 10px;
+
+        h4{
+            margin-bottom: 10px;
+        }
+
+        .type-list{
+            background-color: rgb(255, 255, 255);
+            border-radius: 5px;
+            padding: 10px 0 10px 0;
+            display: flex;
+            justify-content: space-around;
+
+            span{
+                width: 50%;
+                transition: all .2s ease;
+                cursor: pointer;
+                margin: 10px;
+                border-radius: 5px;
+                padding: 5px 10px;
+                color: white;
+                &:hover{
+                    background-color: rgb(241, 240, 240) !important;
+                    color: black;
+                }
+            }
+        }
         @media only screen and (max-width: 767px) {
            
             margin: auto;

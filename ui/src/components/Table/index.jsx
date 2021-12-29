@@ -16,7 +16,7 @@ const Table = ()=>{
     const [page , setPage] = useState(0);
     const [tableElements , setTableElements] = useState(ValuesPerPage[0]);
 
-    const {isLoading , pokeList} = usePagedPokemon(page , tableElements);
+    const {isLoading , pokeList , error} = usePagedPokemon(page , tableElements);
 
 
     return (
@@ -40,6 +40,8 @@ const Table = ()=>{
                     <tbody>
                         {!isLoading 
                         && 
+                        !error
+                        &&
                         pokeList
                             .content
                             .map( 
